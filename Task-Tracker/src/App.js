@@ -8,7 +8,7 @@ import axios from "axios";
 
 const App=()=>{
   const [show, setShow] = useState(true);
-  const [tasks, setTasks] = useState([]);
+  const [task, setTask] = useState([]);
   const url = "https://635182113e9fa1244e60855d.mockapi.io/api/tasks"
 
   const handleShow = () => {
@@ -19,7 +19,7 @@ const App=()=>{
     try {
       const {data}=await axios(url)
       console.log(data)
-      setTasks(data)
+      setTask(data)
     } catch (error) {
       console.log(error)
     }
@@ -42,7 +42,7 @@ const App=()=>{
       {show ?<AddTutorial getTask={getTask} />:""}
 
       {/* {show ? <Tutorials tasks={tasks} getTask={getTask} />:""} */}
-      <Tutorials tasks={tasks} getTask={getTask} setTasks={setTasks} />
+      <Tutorials task={task} getTask={getTask} setTask={setTask} />
 
     </Container>
   )

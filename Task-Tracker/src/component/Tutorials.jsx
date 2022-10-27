@@ -6,7 +6,7 @@ import EditTutorial from "./EditTutorial";
 import "./Tutorials.css";
 
 
-const Tutorials = ({ tasks, getTask, }) => {
+const Tutorials = ({ task, getTask, }) => {
   const [newItem, setNewItem] = useState([])
   
 
@@ -34,7 +34,7 @@ const Tutorials = ({ tasks, getTask, }) => {
   return (
     <div className="container mt-4">
       <div>
-        {tasks?.map((item) => {
+        {task?.map((item) => {
           const { task, date, id } = item;
           return (
             <Container

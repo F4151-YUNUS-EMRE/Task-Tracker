@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 
 const EditTutorial = ({ item, editTutorial }) => {
-    const [newtask, setNewtask] = useState(tasks)
+    const {id,task,date}=item
+    const [newtask, setNewtask] = useState(task)
     const [newdate, setNewdate] = useState(date)
-    const {id,tasks,date}=item
 
     useEffect(() => {
-      setNewtask(tasks);
+      setNewtask(task);
       setNewdate(date);
-    }, [tasks, date]);
+    }, [task, date]);
     
   return (
     <div>
@@ -50,7 +50,12 @@ const EditTutorial = ({ item, editTutorial }) => {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary">
+              <button
+                type="button"
+                className="btn btn-primary"
+                data-bs-dismiss="modal"
+                onClick={() => editTutorial(id, newtask, newdate)}
+              >
                 Save changes
               </button>
             </div>
